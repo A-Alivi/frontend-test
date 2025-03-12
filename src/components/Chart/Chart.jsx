@@ -33,10 +33,10 @@ console.log(xAxisLabels);
          xAxis={[{ scaleType: "point", data: xAxisLabels }]} // Use the extracted labels here
          series={[
            {
-             data: [2, 5.5, 2, 8.5, 1.5],
+             data: [2, 5.5, 2, 8.5, 1.5,5],
            },
            {
-             data: [3, 1.7, 3, 5.9, 4.5],
+             data: [3, 1.7, 3, 5.9, 4.5,4]
            },
   ]}
   width={500}

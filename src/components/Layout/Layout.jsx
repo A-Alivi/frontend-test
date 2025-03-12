@@ -62,15 +62,24 @@ const Layout = () => {
           <SectionLabels labels={"Diagnosis History"}/> 
           <div className="flex justify-evenly bg-purple-300 ms-10 me-10 mt-5 mb-5 rounded-2xl ">
             <div className="bg-purple-300">
-            <h1 className="font-semibold ms-5 mt-5">Blood Pressure</h1>
+            <div className="flex">
+              <h1 className="font-semibold ms-5 mt-5">Blood Pressure</h1>
+              <p className="ms-55 mt-5 m">Last 6 months</p>
+            </div>
             <Chart   diagnosis_history={data[currentIndex].diagnosis_history} onClick={setCurrentYear }/>
             </div>
             <div className="bg-purple-300 flex-col m-1 mt-4">
-                <p className="font-semibold">Systolic</p>
+            <div className="flex">
+            <input id="link-radio" type="radio" value="" className="bg-teal-400"/>
+            <p className="font-semibold ms-1">Systolic</p>
+            </div>
                 <h1 className="font-bold">{data[currentIndex].diagnosis_history[0].blood_pressure.systolic.value}</h1>
                 <p>{data[currentIndex].diagnosis_history[0].blood_pressure.systolic.levels}</p>
                 <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-                <p className="font-semibold">Diastolic</p>
+                <div className="flex">
+                <input id="link-radio" type="radio" value="" className="bg-blue-400"/>
+                <p className="font-semibold ms-1">Diastolic</p>
+                </div>
                 <h1 className="font-bold">{data[currentIndex].diagnosis_history[0].blood_pressure.diastolic.value}</h1>
                 <p>{data[currentIndex].diagnosis_history[0].blood_pressure.diastolic.levels}</p>
             </div>

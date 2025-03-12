@@ -10,22 +10,25 @@ console.log(diagnosis_history)
 
 
 let listMap = [];  // Initialize an empty array to store Maps
-
+let bpSystolic =[]
+let bpDiastolic = []
 for (let i = 0; i < 6; i++) {
     let monthYear = new Map();
 
-    let month = diagnosis_history[i].month;
+    let month = diagnosis_history[i].month.substring(0,3);
     let year = diagnosis_history[i].year;
-
+    bpSystolic[i] = diagnosis_history[i].blood_pressure.systolic.value
+    bpDiastolic[i] = diagnosis_history[i].blood_pressure.diastolic.value
     monthYear.set("month", month);
     monthYear.set("year", year);
 
     listMap.push(monthYear); // Push the Map into the list
 }
+
+
 const xAxisLabels = listMap.map(map => `${map.get("month")} ${map.get("year")}`);
 
-console.log(xAxisLabels); 
-  
+ 
 
   return (
     <div >
@@ -33,10 +36,10 @@ console.log(xAxisLabels);
          xAxis={[{ scaleType: "point", data: xAxisLabels }]} // Use the extracted labels here
          series={[
            {
-             data: [2, 5.5, 2, 8.5, 1.5,5],
+             data: bpSystolic,
            },
            {
-             data: [3, 1.7, 3, 5.9, 4.5,4]
+             data: bpDiastolic,
            },
   ]}
   width={500}
